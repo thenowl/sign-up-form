@@ -1,0 +1,206 @@
+@font-face {
+  font-family: "Norse";
+  src: url(../fonts/Norse-Bold.otf);
+}
+
+@font-face {
+  font-family: "Marcellus";
+  src: url(../fonts/Marcellus-Regular.ttf);
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+:any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  display: flex;
+
+  height: 100vh;
+  width: 100vw;
+
+  justify-content: center;
+}
+
+.sidebanner {
+  flex: 1;
+
+  background-image: url(../img/Night\ Owl\ -\ Lava.jpg);
+
+  position: relative;
+}
+
+.banner {
+  position: absolute;
+
+  top: 10%;
+  left: 0;
+
+  height: clamp(100px, 20vh, 150px);
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.banner img {
+  width: 50%;
+  height: auto;
+}
+
+.banner h1 {
+  font-family: "Norse";
+  text-transform: capitalize;
+  font-size: 2.8rem;
+  color: #5f201b;
+  text-shadow: 0 0 20px rgba(147, 58, 52, 0.5);
+}
+
+.copyright {
+  color: rgb(147, 58, 52);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main-section {
+  flex: 2;
+
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 1;
+}
+
+main {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: 40px;
+  padding: 40px;
+}
+
+main h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  font-family: "Marcellus";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+  gap: 40px;
+  padding-left: 40px;
+}
+
+.form-fill-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 40px;
+}
+
+.form-cell {
+  flex: 1;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  /* padding-left: 20px; */
+}
+
+.form-cell label {
+}
+
+.form-cell input {
+  width: 50%;
+}
+
+form button {
+  font-family: "Norse";
+  font-size: 1.5rem;
+  align-self: center;
+
+  background: #333;
+  color: rgb(147, 58, 52);
+
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3rem;
+}
+
+.log-in {
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.log-in span {
+  font-family: "Norse";
+  font-size: 1.2rem;
+}
