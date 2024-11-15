@@ -8,6 +8,11 @@
   src: url(../fonts/Marcellus-Regular.ttf);
 }
 
+:root {
+  --dark-text: rgb(75, 15, 15);
+  --lighter-text: rgb(105, 33, 33);
+}
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -77,12 +82,16 @@ body {
   justify-content: center;
 }
 
-.sidebanner {
+.side-banner {
   flex: 1;
 
   background-image: url(../img/Night\ Owl\ -\ Lava.jpg);
+  background-size: cover;
+  background-position: bottom;
 
   position: relative;
+
+  user-select: none;
 }
 
 .banner {
@@ -94,76 +103,120 @@ body {
   height: clamp(100px, 20vh, 150px);
   width: 100%;
 
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
 
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }
 
 .banner img {
-  width: 50%;
+  width: 40%;
   height: auto;
 }
 
 .banner h1 {
   font-family: "Norse";
-  text-transform: capitalize;
-  font-size: 2.8rem;
-  color: #5f201b;
-  text-shadow: 0 0 20px rgba(147, 58, 52, 0.5);
+  font-size: clamp(2rem, 2vw, 3rem);
+  color: var(--dark-text);
+  text-shadow: 0 0 20px rgba(98, 26, 26, 0.5);
 }
 
 .copyright {
-  color: rgb(147, 58, 52);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 3px 10px;
+  border: none;
+  border-radius: 1rem;
+  color: var(--lighter-text);
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.copyright a:hover {
+  color: rgb(100, 76, 76);
+  text-decoration: underline;
+}
+
 .main-section {
+  color: whitesmoke;
+
   flex: 2;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(../img/karsten-winegeart-6S_sB7N3Klk-unsplash.jpg);
+  background-size: cover;
+  background-position: bottom;
+
+  position: relative;
+
+  user-select: none;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.main-section > img {
+  user-select: none;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 75vh;
+  width: auto;
+
+  opacity: 0.4;
 }
 
 header {
   flex: 1;
+
+  z-index: 1;
 }
 
 main {
   flex: 2;
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 
-  gap: 40px;
-  padding: 40px;
-}
+  width: 100%;
 
-main h2 {
-  margin-bottom: 20px;
+  gap: 40px;
+  padding: 40px 0;
+  z-index: 1;
 }
 
 form {
   font-family: "Marcellus";
+  background: radial-gradient(rgba(98, 26, 26, 0.05), rgba(5, 0, 0, 1));
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  padding: 40px 0;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-items: flex-start; */
+  align-items: center;
   gap: 40px;
-  padding-left: 40px;
+}
+
+form h2 {
+  align-self: flex-start;
+  padding-left: 22%;
 }
 
 .form-fill-container {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   row-gap: 40px;
+  padding-left: 10%;
 }
 
 .form-cell {
@@ -171,19 +224,85 @@ form {
   min-width: 50%;
   display: flex;
   flex-direction: column;
-
-  /* padding-left: 20px; */
+  position: relative;
 }
 
 .form-cell label {
+  position: relative;
+  top: 40px;
+  left: 10px;
   margin-bottom: 5px;
+
+  transition-duration: 500ms;
 }
 
 .form-cell input {
-  width: 50%;
+  color: whitesmoke;
+  background: #111;
+  width: 75%;
   line-height: 2;
+  padding: 5px 10px;
+  opacity: 0.5;
   border: 1px solid #333;
   border-radius: 0.6rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.form-cell span::after {
+  transition-duration: 300ms;
+}
+
+.form-cell input:not(:placeholder-shown):not(:focus):invalid + span::after {
+  content: "X";
+  color: red;
+
+  position: absolute;
+  top: 40px;
+  right: 21%;
+  display: inline;
+}
+
+.form-cell input:not(:placeholder-shown):not(:focus):valid + span::after {
+  content: "✓";
+  font-size: 1.5rem;
+  color: green;
+
+  position: absolute;
+  top: 35px;
+  right: 20%;
+}
+
+input::placeholder {
+  visibility: hidden;
+}
+
+.form-cell input:focus {
+  background: #333;
+  border: 1px solid #555;
+}
+
+.form-cell label:has(+ input:focus) {
+  top: 0;
+  color: rgb(147, 58, 52);
+}
+
+.form-cell label:has(+ input:not(:placeholder-shown)) {
+  top: 0;
+  color: rgb(147, 58, 52);
+}
+
+.fa-eye,
+.fa-eye-slash {
+  color: #999;
+
+  position: absolute;
+  top: 43px;
+  left: 68%;
+  visibility: hidden;
+}
+
+.form-cell:valid-w .form-cell:focus-within .fa-eye {
+  visibility: visible;
 }
 
 form button {
@@ -191,12 +310,25 @@ form button {
   font-size: 2rem;
   align-self: center;
 
-  background: #333;
+  background: #100;
   color: rgb(147, 58, 52);
 
-  padding: 10px 20px;
-  border: none;
+  margin-top: 40px;
+  padding: 10px 25px;
+  border: 1px solid rgba(121, 19, 11, 0);
   border-radius: 3rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+
+  cursor: pointer;
+
+  transition-duration: 100ms;
+}
+
+form button:hover {
+  border: 1px solid rgba(121, 19, 11, 0.4);
+  color: rgb(121, 19, 11);
+  box-shadow: 0 0 20px rgba(147, 58, 52, 0.2),
+    inset 0 0 10px rgba(147, 58, 52, 0.5);
 }
 
 .log-in {
@@ -206,5 +338,19 @@ form button {
 
 .log-in span {
   font-family: "Norse";
-  font-size: 1.2rem;
+}
+
+.log-in a:hover {
+  color: rgb(121, 19, 11);
+}
+
+footer {
+  font-size: 1.1rem;
+  color: var(--dark-text);
+  background: rgba(0, 0, 0, 0.5);
+
+  text-align: center;
+  padding: 10px 0;
+
+  width: 100%;
 }

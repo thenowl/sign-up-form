@@ -6,57 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign-up Form</title>
   <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-  <div class="sidebanner">
+  <div class="side-banner">
     <div class="banner">
-      <img src="./img/Night Owl Logo - Without Frame Dark Red.svg" alt="Night Owl Logo">
+      <img src="./img/Night Owl Logo - Without Frame.svg" alt="Night Owl Logo">
       <h1>Cult ov the night owl</h1>
     </div>
-    <p class="copyright">Photo by <a href="https://unsplash.com/de/@karsten116">Karsten Winegeart</a> on <a
-        href="https://unsplash.com/de/fotos/nahaufnahme-eines-schwarzen-objekts-mit-roten-flecken-UZdxo1Lem94">Unplash</a>
+    <p class="copyright">Photo by <a href="https://unsplash.com/de/@karsten116" target="_blank">Karsten Winegeart</a> on
+      <a href="https://unsplash.com/" target="_blank">Unplash</a>
     </p>
   </div>
 
   <div class="main-section">
+    <img src="./img/Night Owl Logo - With Frame.svg" alt="Evil Night Owl">
     <header>
       <p></p>
     </header>
     <main>
-      <h2>Fill out to join the cult</h2>
       <form action="#" method="post">
+        <h2>Fill out to join the cult</h2>
         <div class="form-fill-container">
           <div class="form-cell">
-            <label for="first-name">First Name</label>
-            <input type="text" name="first-name" id="first-name">
+            <label for="first-name">First Name *</label>
+            <input type="text" name="first-name" id="first-name" placeholder="First Name *" required>
+            <span></span>
           </div>
           <div class="form-cell">
             <label for="last-name">Last Name</label>
-            <input type="text" name="last-name" id="last-name">
+            <input type="text" name="last-name" id="last-name" placeholder="Last Name *">
+            <span></span>
           </div>
           <div class="form-cell">
-            <label for="user-name">Username</label>
-            <input type="text" name="user-name" id="user-name">
+            <label for="user-name">Username *</label>
+            <input type="text" name="user-name" id="user-name" placeholder="Username *" required>
+            <span></span>
           </div>
           <div class="form-cell">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <label for="email">Email *</label>
+            <input type="email" name="email" id="email" placeholder="Email *" required>
+            <span></span>
           </div>
           <div class="form-cell">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <label for="password">Password *</label>
+            <input type="password" name="password" id="password" placeholder="Password *"
+              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$">
+            <i class="fa-solid fa-eye"></i>
+            <i class="fa-solid fa-eye-slash"></i>
+            <span></span>
           </div>
           <div class="form-cell">
-            <label for="password-confirm">Confirm Password</label>
-            <input type="password" name="password-confirm" id="password-confirm"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <label for="password-confirm">Confirm Password *</label>
+            <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password *"
+              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$">
+            <i class="fa-solid fa-eye"></i>
+            <i class="fa-solid fa-eye-slash"></i>
+            <span></span>
           </div>
         </div>
         <button type="submit">Join the owl cult</button>
       </form>
       <p class="log-in">Already a <span>night owl</span>? <a href="">Log in</a></p>
     </main>
+    <footer>
+      <p>Copyright &copy; thenowl 2024</p>
+    </footer>
   </div>
 </body>
 
