@@ -94,7 +94,7 @@ body {
   height: clamp(100px, 20vh, 150px);
   width: 100%;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
 
   display: flex;
   justify-content: space-evenly;
@@ -176,21 +176,25 @@ form {
 }
 
 .form-cell label {
+  margin-bottom: 5px;
 }
 
 .form-cell input {
   width: 50%;
+  line-height: 2;
+  border: 1px solid #333;
+  border-radius: 0.6rem;
 }
 
 form button {
   font-family: "Norse";
-  font-size: 1.5rem;
+  font-size: 2rem;
   align-self: center;
 
   background: #333;
   color: rgb(147, 58, 52);
 
-  padding: 10px 15px;
+  padding: 10px 20px;
   border: none;
   border-radius: 3rem;
 }
