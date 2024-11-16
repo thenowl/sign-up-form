@@ -32,41 +32,46 @@
           <div class="form-cell">
             <label for="first-name">First Name *</label>
             <input type="text" name="first-name" id="first-name" placeholder="First Name *" required>
-            <span></span>
+            <span class="input-validity"></span>
           </div>
           <div class="form-cell">
             <label for="last-name">Last Name</label>
             <input type="text" name="last-name" id="last-name" placeholder="Last Name *">
-            <span></span>
+            <span class="input-validity"></span>
           </div>
           <div class="form-cell">
             <label for="user-name">Username *</label>
             <input type="text" name="user-name" id="user-name" placeholder="Username *" required>
-            <span></span>
+            <span class="input-validity"></span>
           </div>
           <div class="form-cell">
             <label for="email">Email *</label>
             <input type="email" name="email" id="email" placeholder="Email *" required>
-            <span></span>
+            <span class="input-validity"></span>
           </div>
           <div class="form-cell">
             <label for="password">Password *</label>
-            <input type="password" name="password" id="password" placeholder="Password *"
-              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$">
-            <i class="fa-solid fa-eye"></i>
-            <i class="fa-solid fa-eye-slash"></i>
-            <span></span>
+            <input type="password" name="password" id="password" placeholder="Password *" required>
+            <button id="passwordVisibility" class="visibility-button" type="button">
+              <i id="hidePw" class="fa-solid fa-eye-slash"></i>
+              <i id="showPw" class="fa-solid fa-eye"></i>
+            </button>
+            <span class="password"></span>
+            <p id="passwordText"></p>
           </div>
           <div class="form-cell">
             <label for="password-confirm">Confirm Password *</label>
             <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password *"
-              pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$">
-            <i class="fa-solid fa-eye"></i>
-            <i class="fa-solid fa-eye-slash"></i>
-            <span></span>
+              required disabled>
+            <button id="confirmVisibility" class="visibility-button" type="button" disabled>
+              <i id="hideConfirm" class="fa-solid fa-eye-slash"></i>
+              <i id="showConfirm" class="fa-solid fa-eye"></i>
+            </button>
+            <span class="password-confirm"></span>
+            <p id="confirmText"></p>
           </div>
         </div>
-        <button type="submit">Join the owl cult</button>
+        <button class="submit-button" type="submit">Join the owl cult</button>
       </form>
       <p class="log-in">Already a <span>night owl</span>? <a href="">Log in</a></p>
     </main>
@@ -74,6 +79,10 @@
       <p>Copyright &copy; thenowl 2024</p>
     </footer>
   </div>
+
+  <!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$&+,:;=?@#|'<>.^*()%!-])[A-Za-z\d$&+,:;=?@#|'<>.^*()%!-]{8,}$" -->
+
+  <script src="./js/javascript.js"></script>
 </body>
 
 </html>
