@@ -406,10 +406,13 @@ form .required-info {
 .form-cell #confirmText {
   position: absolute;
   top: 85px;
-  left: 10px;
+  left: 0;
 
   font-size: 0.8rem;
   color: var(--lighter-text);
+  background: linear-gradient(90deg, var(--opaque-black), transparent);
+  border-radius: 2rem;
+  z-index: 1;
   visibility: hidden;
 }
 
@@ -470,11 +473,6 @@ footer .copyright-alternative {
 }
 
 @media only screen and (min-width: 500px) {
-  .arrow,
-  .arrow span {
-    visibility: hidden;
-  }
-
   header {
     flex-direction: row;
   }
@@ -531,6 +529,11 @@ footer .copyright-alternative {
     position: static;
   }
 
+  .arrow,
+  .arrow span {
+    visibility: hidden;
+  }
+
   .banner h1 {
     font-size: clamp(1.8rem, 2vw, 5rem);
 
@@ -563,6 +566,11 @@ footer .copyright-alternative {
 
   .form-cell {
     min-width: 50%;
+  }
+
+  .form-cell #passwordText,
+  .form-cell #confirmText {
+    background: none;
   }
 
   footer .copyright-alternative {
