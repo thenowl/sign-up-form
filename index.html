@@ -13,9 +13,13 @@
   <div class="side-banner">
     <div class="banner">
       <img src="./img/Night Owl Logo - Without Frame.svg" alt="Night Owl Logo">
+      <a class="arrow" href="#hero-text">
+        <span></span><span></span><span></span>
+      </a>
       <h1>Cult ov the night owl</h1>
     </div>
-    <p class="copyright">Photo by <a href="https://unsplash.com/de/@karsten116" target="_blank">Karsten Winegeart</a> on
+    <p class="copyright">Photos by <a href="https://unsplash.com/de/@karsten116" target="_blank">Karsten Winegeart</a>
+      on
       <a href="https://unsplash.com/" target="_blank">Unplash</a>
     </p>
   </div>
@@ -23,14 +27,25 @@
   <div class="main-section">
     <img src="./img/Night Owl Logo - With Frame.svg" alt="Evil Night Owl">
     <header>
-      <p></p>
+      <p>
+        Light of the dusk awoken, <br>
+        Voice of the quiescence dwellers, <br>
+        A void bearer's pervasion, <br>
+        A bleak wisdom of emptiness. <br>
+        <br>
+      </p>
+      <p>
+        &mdash; If we call into the night <br>
+        The owl will answer us...
+      </p>
     </header>
     <main>
-      <form action="#" method="post">
+      <form action="#" method="post" id="hero-text">
         <h2>Fill out to join the cult</h2>
+        <p class="required-info">Fields with an <span aria-label="required">*</span> are required.</p>
         <div class="form-fill-container">
           <div class="form-cell">
-            <label for="first-name">First Name *</label>
+            <label for="first-name">First Name <span aria-label="required">*</span></label>
             <input type="text" name="first-name" id="first-name" placeholder="First Name *" required>
             <span class="input-validity"></span>
           </div>
@@ -40,32 +55,32 @@
             <span class="input-validity"></span>
           </div>
           <div class="form-cell">
-            <label for="user-name">Username *</label>
+            <label for="user-name">Username <span aria-label="required">*</span></label>
             <input type="text" name="user-name" id="user-name" placeholder="Username *" required>
             <span class="input-validity"></span>
           </div>
           <div class="form-cell">
-            <label for="email">Email *</label>
+            <label for="email">Email <span aria-label="required">*</span></label>
             <input type="email" name="email" id="email" placeholder="Email *" required>
             <span class="input-validity"></span>
           </div>
           <div class="form-cell">
-            <label for="password">Password *</label>
+            <label for="password">Password <span aria-label="required">*</span></label>
             <input type="password" name="password" id="password" placeholder="Password *" required>
             <button id="passwordVisibility" class="visibility-button" type="button">
-              <i id="hidePw" class="fa-solid fa-eye-slash"></i>
-              <i id="showPw" class="fa-solid fa-eye"></i>
+              <i id="hidePw" class="fa-solid fa-eye-slash" title="Hide password"></i>
+              <i id="showPw" class="fa-solid fa-eye" title="Show password"></i>
             </button>
             <span class="password"></span>
             <p id="passwordText"></p>
           </div>
           <div class="form-cell">
-            <label for="password-confirm">Confirm Password *</label>
+            <label for="password-confirm">Confirm Password <span aria-label="required">*</span></label>
             <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password *"
               required disabled>
             <button id="confirmVisibility" class="visibility-button" type="button" disabled>
-              <i id="hideConfirm" class="fa-solid fa-eye-slash"></i>
-              <i id="showConfirm" class="fa-solid fa-eye"></i>
+              <i id="hideConfirm" class="fa-solid fa-eye-slash" title="Hide password"></i>
+              <i id="showConfirm" class="fa-solid fa-eye" title="Show password"></i>
             </button>
             <span class="password-confirm"></span>
             <p id="confirmText"></p>
@@ -77,10 +92,12 @@
     </main>
     <footer>
       <p>Copyright &copy; thenowl 2024</p>
+      <p class="copyright-alternative">Photos by <a href="https://unsplash.com/de/@karsten116" target="_blank">Karsten
+          Winegeart</a> on
+        <a href="https://unsplash.com/" target="_blank">Unplash</a>
+      </p>
     </footer>
   </div>
-
-  <!-- pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$&+,:;=?@#|'<>.^*()%!-])[A-Za-z\d$&+,:;=?@#|'<>.^*()%!-]{8,}$" -->
 
   <script src="./js/javascript.js"></script>
 </body>

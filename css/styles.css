@@ -9,8 +9,14 @@
 }
 
 :root {
+  /* COLORS */
   --dark-text: rgb(75, 15, 15);
   --lighter-text: rgb(105, 33, 33);
+  --opaque-black: rgba(0, 0, 0, 0.8);
+  --white-text: rgb(245, 245, 245);
+
+  /* FONT */
+  --small-font: clamp(0.8rem, 0.6vw, 1rem);
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -73,67 +79,124 @@ h6 {
   color: inherit;
 }
 
+::selection {
+  background: var(--dark-text);
+  color: #100;
+}
+
 body {
   display: flex;
+  flex-direction: column;
 
-  height: 100vh;
   width: 100vw;
 
   justify-content: center;
 }
 
 .side-banner {
-  flex: 1;
-
   background-image: url(../img/Night\ Owl\ -\ Lava.jpg);
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  height: 100vh;
 
   position: relative;
-
-  user-select: none;
 }
 
 .banner {
   position: absolute;
 
-  top: 10%;
+  top: 15%;
   left: 0;
 
-  height: clamp(100px, 20vh, 150px);
+  height: clamp(80px, 15vw, 160px);
   width: 100%;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--opaque-black);
 
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 10px var(--opaque-black);
 }
 
 .banner img {
-  width: 40%;
+  width: 80%;
   height: auto;
+  opacity: 0.7;
+
+  position: absolute;
+
+  user-select: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.arrow span {
+  display: block;
+  width: 7vw;
+  height: 7vw;
+  border-bottom: 5px solid var(--dark-text);
+  border-right: 5px solid var(--dark-text);
+  transform: rotate(45deg);
+  animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
 }
 
 .banner h1 {
   font-family: "Norse";
-  font-size: clamp(2rem, 2vw, 3rem);
+  font-size: clamp(1.8rem, 10vw, 5rem);
   color: var(--dark-text);
   text-shadow: 0 0 20px rgba(98, 26, 26, 0.5);
+
+  background: radial-gradient(var(--opaque-black), transparent);
+  padding: 10px;
+  border-radius: 4rem;
+  z-index: 1;
 }
 
 .copyright {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 3px 10px;
+  font-size: var(--small-font);
+  color: var(--lighter-text);
+  background: radial-gradient(var(--opaque-black), transparent);
+  padding: 3px 6px;
   border: none;
   border-radius: 1rem;
-  color: var(--lighter-text);
+  text-wrap: nowrap;
+
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+
+  visibility: hidden;
 }
 
 .copyright a:hover {
@@ -142,9 +205,7 @@ body {
 }
 
 .main-section {
-  color: whitesmoke;
-
-  flex: 2;
+  color: var(--white-text);
 
   display: flex;
   flex-direction: column;
@@ -157,16 +218,15 @@ body {
 
   position: relative;
 
-  user-select: none;
-  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: -10px 0 20px var(--opaque-black);
 }
 
 .main-section > img {
   user-select: none;
   position: absolute;
-  top: 50px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   height: 75vh;
   width: auto;
 
@@ -174,9 +234,25 @@ body {
 }
 
 header {
-  flex: 1;
+  font-size: clamp(1.3rem, 1vw, 2rem);
+  padding: 0 clamp(40px, 5vw, 160px);
+  padding-top: 40px;
+  opacity: 0.8;
 
-  z-index: 1;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  flex: 1;
+  align-self: flex-start;
+}
+
+header p {
+  text-align: center;
+  text-shadow: 0 10px 15px var(--opaque-black);
 }
 
 main {
@@ -189,40 +265,49 @@ main {
 
   gap: 40px;
   padding: 40px 0;
-  z-index: 1;
 }
 
 form {
   font-family: "Marcellus";
   background: radial-gradient(rgba(98, 26, 26, 0.05), rgba(5, 0, 0, 1));
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 10px var(--opaque-black);
   width: 100%;
-  padding: 40px 0;
+  padding: 40px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  gap: 20px;
+
+  position: relative;
 }
 
 form h2 {
-  align-self: flex-start;
-  padding-left: 22%;
-  opacity: 0.6;
+  align-self: center;
+  opacity: 0.5;
+  margin-bottom: 40px;
+}
+
+form .required-info {
+  font-size: var(--small-font);
+  color: rgb(147, 58, 52);
+
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .form-fill-container {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  row-gap: 40px;
-  padding-left: 10%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .form-cell {
   flex: 1;
-  min-width: 50%;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -237,16 +322,26 @@ form h2 {
   transition-duration: 500ms;
 }
 
+.form-cell label:has(+ input:focus),
+.form-cell label:has(+ input:not(:placeholder-shown)) {
+  top: 0;
+  color: rgb(147, 58, 52);
+}
+
 .form-cell input {
-  color: whitesmoke;
+  color: var(--white-text);
   background: #111;
-  width: 75%;
+  width: 100%;
   line-height: 2;
   padding: 5px 10px;
   opacity: 0.5;
   border: 1px solid #333;
   border-radius: 0.6rem;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 40px #000, inset 0 0 20px var(--opaque-black);
+}
+
+.form-cell input::placeholder {
+  visibility: hidden;
 }
 
 .form-cell .input-validity::after {
@@ -255,29 +350,29 @@ form h2 {
 
 .form-cell
   input:not(:placeholder-shown):not(:focus):invalid
-  + .input-validity::after {
+  + .input-validity::after,
+.password.invalid::after,
+.password-confirm.invalid::after {
   content: "X";
   color: red;
 
   position: absolute;
   top: 40px;
-  right: 21%;
+  right: -6%;
 }
 
 .form-cell
   input:not(:placeholder-shown):not(:focus):valid
-  + .input-validity::after {
+  + .input-validity::after,
+.password.valid::after,
+.password-confirm.valid::after {
   content: "✓";
   font-size: 1.5rem;
   color: green;
 
   position: absolute;
   top: 35px;
-  right: 20%;
-}
-
-.form-cell input::placeholder {
-  visibility: hidden;
+  right: -8%;
 }
 
 .form-cell input:focus {
@@ -285,25 +380,16 @@ form h2 {
   border: 1px solid #555;
 }
 
-.form-cell label:has(+ input:focus) {
-  top: 0;
-  color: rgb(147, 58, 52);
-}
-
-.form-cell label:has(+ input:not(:placeholder-shown)) {
-  top: 0;
-  color: rgb(147, 58, 52);
-}
-
 .visibility-button {
-  color: #999;
+  font-size: inherit;
+  color: rgb(147, 58, 52);
+  background: transparent;
+  border: none;
+  opacity: 0.7;
 
   position: absolute;
   top: 43px;
-  left: 68%;
-  font-size: inherit;
-  border: none;
-  background: transparent;
+  right: 10%;
 
   cursor: pointer;
 }
@@ -327,27 +413,6 @@ form h2 {
   visibility: hidden;
 }
 
-.password.valid::after,
-.password-confirm.valid::after {
-  content: "✓";
-  font-size: 1.5rem;
-  color: green;
-
-  position: absolute;
-  top: 35px;
-  right: 20%;
-}
-
-.password.invalid::after,
-.password-confirm.invalid::after {
-  content: "X";
-  color: red;
-
-  position: absolute;
-  top: 40px;
-  right: 21%;
-}
-
 form .submit-button {
   font-family: "Norse";
   font-size: 2rem;
@@ -358,9 +423,9 @@ form .submit-button {
 
   margin-top: 40px;
   padding: 10px 25px;
-  border: 1px solid rgba(121, 19, 11, 0);
+  border: 1px solid rgba(121, 19, 11, 0.4);
   border-radius: 3rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 30px var(--opaque-black);
 
   cursor: pointer;
 
@@ -368,7 +433,7 @@ form .submit-button {
 }
 
 form .submit-button:hover {
-  border: 1px solid rgba(121, 19, 11, 0.3);
+  border: 1px solid rgba(121, 19, 11, 0.5);
   color: rgb(121, 19, 11);
   box-shadow: 0 0 20px rgba(147, 58, 52, 0.2),
     inset 0 0 10px rgba(147, 58, 52, 0.5);
@@ -390,7 +455,7 @@ form .submit-button:hover {
 }
 
 footer {
-  font-size: 1.1rem;
+  font-size: var(--small-font);
   color: var(--dark-text);
   background: rgba(0, 0, 0, 0.5);
 
@@ -398,4 +463,109 @@ footer {
   padding: 10px 0;
 
   width: 100%;
+}
+
+footer .copyright-alternative {
+  visibility: visible;
+}
+
+@media only screen and (min-width: 500px) {
+  .arrow,
+  .arrow span {
+    visibility: hidden;
+  }
+
+  header {
+    flex-direction: row;
+  }
+
+  header p {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .form-cell input {
+    width: 75%;
+  }
+
+  .form-cell
+    input:not(:placeholder-shown):not(:focus):invalid
+    + .input-validity::after,
+  .password.invalid::after,
+  .password-confirm.invalid::after {
+    right: 21%;
+  }
+
+  .form-cell
+    input:not(:placeholder-shown):not(:focus):valid
+    + .input-validity::after,
+  .password.valid::after,
+  .password-confirm.valid::after {
+    right: 20%;
+  }
+
+  .visibility-button {
+    right: 30%;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  body {
+    height: 100vh;
+    flex-direction: row;
+  }
+
+  .side-banner {
+    flex: 1;
+    background-position: bottom;
+  }
+
+  .banner {
+    height: clamp(80px, 6vw, 160px);
+  }
+
+  .banner img {
+    width: 40%;
+    opacity: 1;
+
+    position: static;
+  }
+
+  .banner h1 {
+    font-size: clamp(1.8rem, 2vw, 5rem);
+
+    background: none;
+    padding: 0;
+    z-index: 0;
+  }
+
+  .copyright {
+    visibility: visible;
+  }
+
+  .main-section {
+    flex: 2;
+  }
+
+  form {
+    align-items: center;
+    padding: 40px 0;
+  }
+
+  .form-fill-container {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    row-gap: 40px;
+    padding-left: 10%;
+  }
+
+  .form-cell {
+    min-width: 50%;
+  }
+
+  footer .copyright-alternative {
+    display: none;
+  }
 }
