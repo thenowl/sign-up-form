@@ -16,6 +16,7 @@ let confirmMessageAfter = document.querySelector(".password-confirm");
 let password = null;
 
 function isPasswordValid(input) {
+  pwMessage.style.visibility = "visible";
   pwMessage.innerText = "";
 
   if (
@@ -27,6 +28,7 @@ function isPasswordValid(input) {
     pwMessageAfter.classList.add("valid");
     confirmInput.disabled = false;
     confirmVisibility.disabled = false;
+    pwMessage.style.visibility = "hidden";
     password = input;
     return true;
   } else {
@@ -75,6 +77,8 @@ function isPasswordValid(input) {
     confirmInput.value = "";
     confirmInput.disabled = true;
     confirmVisibility.disabled = true;
+    confirmMessageAfter.classList.remove("valid");
+    confirmMessageAfter.classList.remove("invalid");
     password = null;
     return false;
   }
@@ -82,9 +86,9 @@ function isPasswordValid(input) {
 
 pwInput.addEventListener("input", (event) => {
   let input = event.target.value;
-  pwMessage.style.visibility = "visible";
 
   isPasswordValid(input);
+  isPasswordMatch(password, confirmInput.value);
   pwInput.focus();
 });
 
@@ -106,8 +110,10 @@ function isPasswordMatch(passInput, conInput) {
     confirmMessageAfter.classList.remove("invalid");
     confirmMessageAfter.classList.add("valid");
     submitButton.disabled = false;
+    confirmMessage.style.visibility = "hidden";
     return true;
   } else {
+    confirmMessage.style.visibility = "visible";
     confirmMessage.innerText = "Passwords do not match!";
     confirmMessageAfter.classList.remove("valid");
     confirmMessageAfter.classList.add("invalid");
@@ -118,7 +124,6 @@ function isPasswordMatch(passInput, conInput) {
 
 confirmInput.addEventListener("input", (event) => {
   let input = event.target.value;
-  confirmMessage.style.visibility = "visible";
 
   isPasswordMatch(password, input);
   confirmInput.focus();
