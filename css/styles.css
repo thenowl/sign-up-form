@@ -174,7 +174,6 @@ body {
   font-family: "Norse";
   font-size: clamp(1.8rem, 10vw, 5rem);
   color: var(--dark-text);
-  text-shadow: 0 0 20px rgba(98, 26, 26, 0.5);
 
   background: radial-gradient(var(--opaque-black), transparent);
   padding: 10px;
