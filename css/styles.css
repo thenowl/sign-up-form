@@ -405,12 +405,13 @@ form .required-info {
 .form-cell #passwordText,
 .form-cell #confirmText {
   position: absolute;
-  top: 85px;
+  top: 75px;
   left: 0;
 
   font-size: 0.8rem;
   color: var(--lighter-text);
-  background: linear-gradient(90deg, var(--opaque-black), transparent);
+  background: var(--opaque-black);
+  padding: 10px 15px;
   border-radius: 2rem;
   z-index: 1;
   visibility: hidden;
@@ -482,6 +483,24 @@ footer .copyright-alternative {
     display: inline-block;
   }
 
+  form {
+    align-items: center;
+    padding: 40px 0;
+  }
+
+  .form-fill-container {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    row-gap: 40px;
+    padding-left: 10%;
+  }
+
+  .form-cell {
+    min-width: 50%;
+  }
+
   .form-cell input {
     width: 75%;
   }
@@ -491,7 +510,7 @@ footer .copyright-alternative {
     + .input-validity::after,
   .password.invalid::after,
   .password-confirm.invalid::after {
-    right: 21%;
+    right: 19%;
   }
 
   .form-cell
@@ -499,7 +518,7 @@ footer .copyright-alternative {
     + .input-validity::after,
   .password.valid::after,
   .password-confirm.valid::after {
-    right: 20%;
+    right: 18%;
   }
 
   .visibility-button {
@@ -550,22 +569,20 @@ footer .copyright-alternative {
     flex: 2;
   }
 
-  form {
-    align-items: center;
-    padding: 40px 0;
+  .form-cell
+    input:not(:placeholder-shown):not(:focus):invalid
+    + .input-validity::after,
+  .password.invalid::after,
+  .password-confirm.invalid::after {
+    right: 21%;
   }
 
-  .form-fill-container {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0;
-    row-gap: 40px;
-    padding-left: 10%;
-  }
-
-  .form-cell {
-    min-width: 50%;
+  .form-cell
+    input:not(:placeholder-shown):not(:focus):valid
+    + .input-validity::after,
+  .password.valid::after,
+  .password-confirm.valid::after {
+    right: 20%;
   }
 
   .form-cell #passwordText,

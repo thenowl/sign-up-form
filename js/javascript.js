@@ -34,6 +34,7 @@ function isPasswordValid(input) {
       pwMessageAfter.classList.remove("valid");
       pwMessageAfter.classList.remove("invalid");
       pwMessage.innerText = "";
+      pwMessage.style.visibility = "hidden";
       return;
     }
 
@@ -96,6 +97,7 @@ function isPasswordMatch(passInput, conInput) {
     confirmMessageAfter.classList.remove("valid");
     confirmMessageAfter.classList.remove("invalid");
     confirmMessage.innerText = "";
+    confirmMessage.style.visibility = "hidden";
     return;
   }
 
