@@ -7,6 +7,7 @@ const confirmVisibility = document.querySelector("#confirmVisibility");
 const pwInput = document.querySelector("#password");
 const confirmInput = document.querySelector("#password-confirm");
 const submitButton = document.querySelector(".submit-button");
+const frameLogo = document.querySelector("#frame-logo");
 
 let pwMessage = document.querySelector("#passwordText");
 let pwMessageAfter = document.querySelector(".password");
@@ -79,6 +80,7 @@ function isPasswordValid(input) {
     confirmVisibility.disabled = true;
     confirmMessageAfter.classList.remove("valid");
     confirmMessageAfter.classList.remove("invalid");
+    frameLogo.style.filter = "drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))";
     password = null;
     return false;
   }
@@ -102,6 +104,7 @@ function isPasswordMatch(passInput, conInput) {
     confirmMessageAfter.classList.remove("invalid");
     confirmMessage.innerText = "";
     confirmMessage.style.visibility = "hidden";
+    frameLogo.style.filter = "drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))";
     return;
   }
 
@@ -111,6 +114,7 @@ function isPasswordMatch(passInput, conInput) {
     confirmMessageAfter.classList.add("valid");
     submitButton.disabled = false;
     confirmMessage.style.visibility = "hidden";
+    frameLogo.style.filter = "drop-shadow(0 0 20px rgba(0, 128, 0, 0.7))";
     return true;
   } else {
     confirmMessage.style.visibility = "visible";
@@ -118,6 +122,7 @@ function isPasswordMatch(passInput, conInput) {
     confirmMessageAfter.classList.remove("valid");
     confirmMessageAfter.classList.add("invalid");
     submitButton.disabled = true;
+    frameLogo.style.filter = "drop-shadow(0 0 20px rgba(255, 0, 0, 0.6))";
     return false;
   }
 }
